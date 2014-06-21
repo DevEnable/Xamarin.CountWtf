@@ -27,6 +27,10 @@ namespace CounterWtf.Service.Models
 
         public DbSet<TodoItem> TodoItems { get; set; }
 
+        public DbSet<Project> Projects { get; set; }
+
+        public DbSet<Wtf> Wtfs { get; set; } 
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             string schema = ServiceSettingsDictionary.GetSchemaName();

@@ -31,9 +31,8 @@ namespace CounterWtf.Droid
 		//Progress spinner to use for table operations
 		private ProgressBar progressBar;
 
-		// const string applicationURL = @"https://counterwtf.azure-mobile.net/";
-        const string applicationURL = @"http://localhost:58456/";
-        const string applicationKey = @"HUJCRCpuADtMfXtZZWwNUZGndwXVLN55";
+		const string applicationURL = @"https://counterwtf.azure-mobile.net/";
+        const string applicationKey = @"ddjldEDUWmSdHnMurGuEbAOJDtCEOA59";
 
         private async Task Authenticate()
         {
