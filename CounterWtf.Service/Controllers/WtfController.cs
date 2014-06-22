@@ -44,7 +44,7 @@ namespace CounterWtf.Service.Controllers
         // POST tables/Wtf/48D68C86-6EA6-4C25-AA33-223FC9A27959
         public async Task<IHttpActionResult> PostWtf(Wtf item)
         {
-            item.UserId = ((ServiceUser) User).Id;
+            item.CreatedBy = ((ServiceUser) User).Id;
             Wtf current = await InsertAsync(item);
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }

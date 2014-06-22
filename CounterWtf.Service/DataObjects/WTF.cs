@@ -1,4 +1,5 @@
 ﻿using Microsoft.WindowsAzure.Mobile.Service;
+using Newtonsoft.Json;
 
 namespace CounterWtf.Service.DataObjects
 {
@@ -14,11 +15,13 @@ namespace CounterWtf.Service.DataObjects
         /// <summary>
         /// Gets or sets the project that the Wtf occurred in.
         /// </summary>
+        [JsonProperty("projectId")]
         public string ProjectId { get; set; }
 
         /// <summary>
         /// Gets or sets the user that registered the WTF.
         /// </summary>
-        public string UserId { get; set; }
+        [JsonProperty("createdBy")]
+        public string CreatedBy { get; set; }
     }
 }

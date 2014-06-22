@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Microsoft.WindowsAzure.Mobile.Service;
+﻿using Microsoft.WindowsAzure.Mobile.Service;
+using Newtonsoft.Json;
 
 namespace CounterWtf.Service.DataObjects
 {
@@ -14,16 +11,13 @@ namespace CounterWtf.Service.DataObjects
         /// <summary>
         /// Gets or sets the name of the project.
         /// </summary>
+        [JsonProperty("name")]
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets the description for the project.
+        /// Gets or sets the identifier for the user that created the project counter
         /// </summary>
-        public string Description { get; set; }
-
-        /// <summary>
-        /// Gets or sets the identifier for the user that created the project i
-        /// </summary>
-        public string UserId { get; set; }
+        [JsonProperty("createdBy")]
+        public string CreatedBy { get; set; }
     }
 }

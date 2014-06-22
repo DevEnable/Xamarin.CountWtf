@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{0C64A0
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "CounterWtf.PCL", "CounterWtf.PCL\CounterWtf.PCL.fsproj", "{6809DBED-1114-4339-B6CF-258F7A42DA1D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,14 @@ Global
 		{209FA716-A7AD-4095-BD70-C8710FC66FA7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{209FA716-A7AD-4095-BD70-C8710FC66FA7}.Release|ARM.ActiveCfg = Release|Any CPU
 		{209FA716-A7AD-4095-BD70-C8710FC66FA7}.Release|x86.ActiveCfg = Release|Any CPU
+		{6809DBED-1114-4339-B6CF-258F7A42DA1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6809DBED-1114-4339-B6CF-258F7A42DA1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6809DBED-1114-4339-B6CF-258F7A42DA1D}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{6809DBED-1114-4339-B6CF-258F7A42DA1D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6809DBED-1114-4339-B6CF-258F7A42DA1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6809DBED-1114-4339-B6CF-258F7A42DA1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6809DBED-1114-4339-B6CF-258F7A42DA1D}.Release|ARM.ActiveCfg = Release|Any CPU
+		{6809DBED-1114-4339-B6CF-258F7A42DA1D}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
