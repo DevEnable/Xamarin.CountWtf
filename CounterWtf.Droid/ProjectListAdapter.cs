@@ -9,9 +9,9 @@ namespace CounterWtf.Droid
     /// <summary>
     /// Adapter for a list of projects.
     /// </summary>
-    public class ProjectListAdapter : BaseAdapter<Project>
+    public class ProjectListAdapter : BaseAdapter<ProjectSummary>
     {
-        private readonly List<Project> _projects = new List<Project>();
+        private readonly List<ProjectSummary> _projects = new List<ProjectSummary>();
         
         /// <summary>
         /// Gets the total number of projects represented by the adapter.
@@ -29,7 +29,7 @@ namespace CounterWtf.Droid
         /// </summary>
         /// <param name="position">Position of the project to retrieve.</param>
         /// <returns>Project at the specified position.</returns>
-        public override Project this[int position]
+        public override ProjectSummary this[int position]
         {
             get
             {
@@ -63,7 +63,7 @@ namespace CounterWtf.Droid
         /// Adds an item to the projects to be displayed.
         /// </summary>
         /// <param name="project">Project to add.</param>
-        public void Add(Project project)
+        public void Add(ProjectSummary project)
         {
             _projects.Add(project);
             NotifyDataSetChanged();
@@ -82,7 +82,7 @@ namespace CounterWtf.Droid
         /// Removes a project from the list to be displayed.
         /// </summary>
         /// <param name="project"></param>
-        public void Remove(Project project)
+        public void Remove(ProjectSummary project)
         {
             _projects.Remove(project);
             NotifyDataSetChanged();

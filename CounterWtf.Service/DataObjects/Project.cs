@@ -1,4 +1,5 @@
-﻿using Microsoft.WindowsAzure.Mobile.Service;
+﻿using System.Collections.Generic;
+using Microsoft.WindowsAzure.Mobile.Service;
 using Newtonsoft.Json;
 
 namespace CounterWtf.Service.DataObjects
@@ -19,5 +20,10 @@ namespace CounterWtf.Service.DataObjects
         /// </summary>
         [JsonProperty("createdBy")]
         public string CreatedBy { get; set; }
+
+        /// <summary>
+        /// Gets or sets the WTFs that have occurred in this project.
+        /// </summary>
+        public ICollection<Wtf> Wtfs { get; set; }
     }
 }
