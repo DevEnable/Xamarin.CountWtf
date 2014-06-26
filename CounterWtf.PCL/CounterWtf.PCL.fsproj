@@ -1,59 +1,62 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>6809dbed-1114-4339-b6cf-258f7a42da1d</ProjectGuid>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{4925A630-B079-445D-BCD4-3A9C94FE9307}</ProjectTypeGuids>
+    <ProjectGuid>{699169BE-E05F-449F-947E-327E5DE0EB9D}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>CounterWtf.PCL</RootNamespace>
-    <AssemblyName>CounterWtf.PCL</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Profile7</TargetFrameworkProfile>
-    <TargetProfile>netcore</TargetProfile>
-    <TargetFSharpCoreVersion>3.3.1.0</TargetFSharpCoreVersion>
-    <Name>CounterWtf.PCL</Name>
+    <RootNamespace>FSharpLibrary</RootNamespace>
+    <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
+    <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
+    <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
+    <AndroidResgenFile>Resources\Resource.designer.fs</AndroidResgenFile>
+    <AndroidResgenClass>Resource</AndroidResgenClass>
+    <AssemblyName>FSharpLibrary</AssemblyName>
+    <TargetFrameworkVersion>v4.4</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
     <Tailcalls>false</Tailcalls>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <WarningLevel>3</WarningLevel>
-    <DocumentationFile>bin\Debug\CounterWtf.PCL.XML</DocumentationFile>
+    <PlatformTarget>
+    </PlatformTarget>
+    <ConsolePause>false</ConsolePause>
+    <AndroidLinkMode>None</AndroidLinkMode>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
     <Tailcalls>true</Tailcalls>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <WarningLevel>3</WarningLevel>
-    <DocumentationFile>bin\Release\CounterWtf.PCL.XML</DocumentationFile>
+    <ConsolePause>false</ConsolePause>
+    <PlatformTarget>
+    </PlatformTarget>
+    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
   </PropertyGroup>
-  <PropertyGroup>
-    <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">12</MinimumVisualStudioVersion>
-  </PropertyGroup>
-  <Import Project="$(MSBuildExtensionsPath32)\..\Microsoft SDKs\F#\3.1\Framework\v4.0\Microsoft.Portable.FSharp.Targets" />
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="mscorlib" />
+    <Reference Include="FSharp.Core" />
+    <Reference Include="Mono.Android" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
   <ItemGroup>
     <Compile Include="JsonContracts.fs" />
     <Compile Include="Client.fs" />
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="FSharp.Core">
-      <Name>FSharp.Core</Name>
-      <AssemblyName>FSharp.Core.dll</AssemblyName>
-      <HintPath>$(MSBuildExtensionsPath32)\..\Reference Assemblies\Microsoft\FSharp\.NETCore\$(TargetFSharpCoreVersion)\FSharp.Core.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.WindowsAzure.Mobile">
       <HintPath>..\Components\azure-mobile-services-1.2.1\lib\android\Microsoft.WindowsAzure.Mobile.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.WindowsAzure.Mobile.Ext">
-      <HintPath>..\Components\azure-mobile-services-1.2.1\lib\android\Microsoft.WindowsAzure.Mobile.Ext.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\Components\azure-mobile-services-1.2.1\lib\android\Newtonsoft.Json.dll</HintPath>
@@ -65,11 +68,5 @@
       <HintPath>..\Components\azure-mobile-services-1.2.1\lib\android\System.Net.Http.Primitives.dll</HintPath>
     </Reference>
   </ItemGroup>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.FSharp.targets" />
 </Project>
