@@ -11,13 +11,13 @@ using Microsoft.WindowsAzure.MobileServices;
 namespace CounterWtf.Droid
 {
 	[Activity (MainLauncher = true, 
-	           Icon="@drawable/ic_launcher", Label="@string/app_name",
-	           Theme="@style/AppTheme")]
+			   Icon="@drawable/ic_launcher", Label="@string/app_name",
+			   Theme="@style/AppTheme")]
 	public class ToDoActivity : Activity
 	{
 		//Mobile Service Client reference
 		private MobileServiceClient client;
-	    private MobileServiceUser user;
+		private MobileServiceUser user;
 
 		//Mobile Service Table used to access data
 		private IMobileServiceTable<ToDoItem> toDoTable;
@@ -32,20 +32,20 @@ namespace CounterWtf.Droid
 		private ProgressBar progressBar;
 
 		const string applicationURL = @"https://counterwtf.azure-mobile.net/";
-        const string applicationKey = @"ddjldEDUWmSdHnMurGuEbAOJDtCEOA59";
+		const string applicationKey = @"ddjldEDUWmSdHnMurGuEbAOJDtCEOA59";
 
-        private async Task Authenticate()
-        {
-            try
-            {
-                user = await client.LoginAsync(this, MobileServiceAuthenticationProvider.Twitter);
-                CreateAndShowDialog(string.Format("you are now logged in - {0}", user.UserId), "Logged in!");
-            }
-            catch (Exception ex)
-            {
-                CreateAndShowDialog(ex, "Authentication failed");
-            }
-        }
+		private async Task Authenticate()
+		{
+			try
+			{
+				user = await client.LoginAsync(this, MobileServiceAuthenticationProvider.Twitter);
+				CreateAndShowDialog(string.Format("you are now logged in - {0}", user.UserId), "Logged in!");
+			}
+			catch (Exception ex)
+			{
+				CreateAndShowDialog(ex, "Authentication failed");
+			}
+		}
 
 		protected override async void OnCreate (Bundle bundle)
 		{
@@ -75,8 +75,8 @@ namespace CounterWtf.Droid
 					applicationURL,
 					applicationKey, progressHandler);
 
-                await Authenticate();
-			    await CreateTable();
+				await Authenticate();
+				await CreateTable();
 			} catch (Java.Net.MalformedURLException) {
 				CreateAndShowDialog (new Exception ("There was an error creating the Mobile Service. Verify the URL"), "Error");
 			} catch (Exception e) {
@@ -84,21 +84,21 @@ namespace CounterWtf.Droid
 			}
 		}
 
-        private async Task CreateTable()
-        {
-            // Get the Mobile Service Table instance to use
-            toDoTable = client.GetTable<ToDoItem>();
+		private async Task CreateTable()
+		{
+			// Get the Mobile Service Table instance to use
+			toDoTable = client.GetTable<ToDoItem>();
 
-            textNewToDo = FindViewById<EditText>(Resource.Id.textNewToDo);
+			textNewToDo = FindViewById<EditText>(Resource.Id.textNewToDo);
 
-            // Create an adapter to bind the items with the view
-            adapter = new ToDoItemAdapter(this, Resource.Layout.Row_List_To_Do);
-            var listViewToDo = FindViewById<ListView>(Resource.Id.listViewToDo);
-            listViewToDo.Adapter = adapter;
+			// Create an adapter to bind the items with the view
+			adapter = new ToDoItemAdapter(this, Resource.Layout.Row_List_To_Do);
+			var listViewToDo = FindViewById<ListView>(Resource.Id.listViewToDo);
+			listViewToDo.Adapter = adapter;
 
-            // Load the items from the Mobile Service
-            await RefreshItemsFromTableAsync();
-        }
+			// Load the items from the Mobile Service
+			await RefreshItemsFromTableAsync();
+		}
 
 		//Initializes the activity menu
 		public override bool OnCreateOptionsMenu (IMenu menu)

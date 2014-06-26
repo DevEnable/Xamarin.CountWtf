@@ -66,8 +66,11 @@ namespace CounterWtf.Droid
 			// aapt resource value: 0x7f070004
 			public const int buttonAddToDo = 2131165188;
 			
+			// aapt resource value: 0x7f070008
+			public const int checkToDoItem = 2131165192;
+			
 			// aapt resource value: 0x7f070007
-			public const int checkToDoItem = 2131165191;
+			public const int listViewProjects = 2131165191;
 			
 			// aapt resource value: 0x7f070005
 			public const int listViewToDo = 2131165189;
@@ -75,8 +78,8 @@ namespace CounterWtf.Droid
 			// aapt resource value: 0x7f070002
 			public const int loadingProgressBar = 2131165186;
 			
-			// aapt resource value: 0x7f070008
-			public const int menu_refresh = 2131165192;
+			// aapt resource value: 0x7f070009
+			public const int menu_refresh = 2131165193;
 			
 			// aapt resource value: 0x7f070006
 			public const int textNewProject = 2131165190;

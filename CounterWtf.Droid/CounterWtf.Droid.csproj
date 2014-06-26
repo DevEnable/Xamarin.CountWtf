@@ -47,6 +47,7 @@
     <AndroidSupportedAbis>armeabi,armeabi-v7a</AndroidSupportedAbis>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FSharp.Core" />
     <Reference Include="Microsoft.WindowsAzure.Mobile">
       <HintPath>..\Components\azure-mobile-services-1.2.1\lib\android\Microsoft.WindowsAzure.Mobile.dll</HintPath>
     </Reference>
@@ -71,6 +72,7 @@
     <Reference Include="System.Net.Http" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DroidClient.cs" />
     <Compile Include="ProjectListActivity.cs" />
     <Compile Include="ProjectListAdapter.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
@@ -80,6 +82,7 @@
     <Compile Include="ToDoItem.cs" />
     <Compile Include="ToDoItemAdapter.cs" />
     <Compile Include="WtfApplication.cs" />
+    <Compile Include="WtfProgressHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

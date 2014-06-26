@@ -44,7 +44,7 @@
             android:text="@string/add_button_text" />
     </LinearLayout>
     <ListView
-        android:id="@+id/listViewToDo"
+        android:id="@+id/listViewProjects"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:listitem="@layout/row_list_to_do"
