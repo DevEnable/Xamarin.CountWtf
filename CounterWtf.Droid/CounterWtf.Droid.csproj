@@ -3,8 +3,6 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>10.0.0</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{8E1FCCF4-1FA7-4C23-86B0-19C78B155AA3}</ProjectGuid>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
@@ -16,8 +14,6 @@
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
     <AssemblyName>CounterWtf.Droid</AssemblyName>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
-    <AndroidUseLatestPlatformSdk>
-    </AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v4.3</TargetFrameworkVersion>
     <AndroidSupportedAbis>armeabi,armeabi-v7a,x86</AndroidSupportedAbis>
     <AndroidStoreUncompressedFileExtensions />
@@ -47,7 +43,6 @@
     <AndroidSupportedAbis>armeabi,armeabi-v7a</AndroidSupportedAbis>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FSharp.Core" />
     <Reference Include="Microsoft.WindowsAzure.Mobile">
       <HintPath>..\Components\azure-mobile-services-1.2.1\lib\android\Microsoft.WindowsAzure.Mobile.dll</HintPath>
     </Reference>
@@ -82,7 +77,6 @@
     <Compile Include="ToDoItem.cs" />
     <Compile Include="ToDoItemAdapter.cs" />
     <Compile Include="WtfApplication.cs" />
-    <Compile Include="WtfProgressHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -112,14 +106,14 @@
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="azure-mobile-services">
-      <Visible>False</Visible>
       <Version>1.2.1</Version>
+      <Visible>False</Visible>
     </XamarinComponentReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CounterWtf.PCL\CounterWtf.PCL.fsproj">
-      <Project>{6809dbed-1114-4339-b6cf-258f7a42da1d}</Project>
-      <Name>CounterWtf.PCL</Name>
+    <ProjectReference Include="..\CounterWtf.Common\CounterWtf.Common.csproj">
+      <Project>{fd8a0330-a75c-44bc-9294-939e1f21db8d}</Project>
+      <Name>CounterWtf.Common</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

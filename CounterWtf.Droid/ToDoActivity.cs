@@ -10,8 +10,7 @@ using Microsoft.WindowsAzure.MobileServices;
 
 namespace CounterWtf.Droid
 {
-	[Activity (MainLauncher = true, 
-			   Icon="@drawable/ic_launcher", Label="@string/app_name",
+	[Activity (Icon="@drawable/ic_launcher", Label="@string/app_name",
 			   Theme="@style/AppTheme")]
 	public class ToDoActivity : Activity
 	{

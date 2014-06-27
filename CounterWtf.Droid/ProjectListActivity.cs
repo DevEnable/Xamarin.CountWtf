@@ -4,7 +4,7 @@ using Android.App;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
-using CounterWtf.PCL;
+using CounterWtf.Common;
 using Java.Interop;
 using Microsoft.WindowsAzure.MobileServices;
 using TinyIoC;
@@ -14,7 +14,7 @@ namespace CounterWtf.Droid
     /// <summary>
     /// Lists out the projects that have projects associated with them.
     /// </summary>
-    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme")]
+    [Activity(MainLauncher = true, Label = "@string/app_name", Theme = "@style/AppTheme")]
     public class ProjectListActivity : Activity
     {
         private IWtfClient _client;
@@ -42,7 +42,7 @@ namespace CounterWtf.Droid
 
             // Service locator pattern
             _client = TinyIoCContainer.Current.Resolve<IWtfClient>();
-            _client.BusyIndicator.BusyStateChange.AddHandler(HandleBusyStateChange);
+            _client.BusyIndicator.BusyStateChange += HandleBusyStateChange;
             
             // Authenticate the user as all of the Api controllers require a validated user.
             _user = await Authenticate();
@@ -92,7 +92,8 @@ namespace CounterWtf.Droid
             {
                 // Insert the new project
                 await _client.AddProject(project);
-                _adapter.Add(new ProjectSummary());
+                // Lazy
+                await RefreshProjects();
             }
             catch (Exception e)
             {
@@ -126,7 +127,7 @@ namespace CounterWtf.Droid
             }
         }
 
-        private void HandleBusyStateChange(object sender, bool busy)
+        private void HandleBusyStateChange(bool busy)
         {
             if (_progressBar != null)
             {
@@ -138,7 +139,7 @@ namespace CounterWtf.Droid
         {
             try
             {
-                MobileServiceUser user = await _client.Authenticate();
+                MobileServiceUser user = await _client.Authenticate(this);
                 CreateAndShowDialog(string.Format("You are now logged in - {0}", user.UserId), "Logged in!");
                 return user;
             }

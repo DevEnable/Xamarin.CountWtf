@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{0C64A0
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "CounterWtf.PCL", "CounterWtf.PCL\CounterWtf.PCL.fsproj", "{6809DBED-1114-4339-B6CF-258F7A42DA1D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CounterWtf.Common", "CounterWtf.Common\CounterWtf.Common.csproj", "{FD8A0330-A75C-44BC-9294-939E1F21DB8D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,14 +43,18 @@ Global
 		{209FA716-A7AD-4095-BD70-C8710FC66FA7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{209FA716-A7AD-4095-BD70-C8710FC66FA7}.Release|ARM.ActiveCfg = Release|Any CPU
 		{209FA716-A7AD-4095-BD70-C8710FC66FA7}.Release|x86.ActiveCfg = Release|Any CPU
-		{6809DBED-1114-4339-B6CF-258F7A42DA1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6809DBED-1114-4339-B6CF-258F7A42DA1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6809DBED-1114-4339-B6CF-258F7A42DA1D}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{6809DBED-1114-4339-B6CF-258F7A42DA1D}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{6809DBED-1114-4339-B6CF-258F7A42DA1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6809DBED-1114-4339-B6CF-258F7A42DA1D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6809DBED-1114-4339-B6CF-258F7A42DA1D}.Release|ARM.ActiveCfg = Release|Any CPU
-		{6809DBED-1114-4339-B6CF-258F7A42DA1D}.Release|x86.ActiveCfg = Release|Any CPU
+		{FD8A0330-A75C-44BC-9294-939E1F21DB8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD8A0330-A75C-44BC-9294-939E1F21DB8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD8A0330-A75C-44BC-9294-939E1F21DB8D}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{FD8A0330-A75C-44BC-9294-939E1F21DB8D}.Debug|ARM.Build.0 = Debug|Any CPU
+		{FD8A0330-A75C-44BC-9294-939E1F21DB8D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FD8A0330-A75C-44BC-9294-939E1F21DB8D}.Debug|x86.Build.0 = Debug|Any CPU
+		{FD8A0330-A75C-44BC-9294-939E1F21DB8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD8A0330-A75C-44BC-9294-939E1F21DB8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD8A0330-A75C-44BC-9294-939E1F21DB8D}.Release|ARM.ActiveCfg = Release|Any CPU
+		{FD8A0330-A75C-44BC-9294-939E1F21DB8D}.Release|ARM.Build.0 = Release|Any CPU
+		{FD8A0330-A75C-44BC-9294-939E1F21DB8D}.Release|x86.ActiveCfg = Release|Any CPU
+		{FD8A0330-A75C-44BC-9294-939E1F21DB8D}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

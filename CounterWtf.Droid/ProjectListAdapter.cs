@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Android.Views;
 using Android.Widget;
-using CounterWtf.PCL;
+using CounterWtf.Common;
 
 namespace CounterWtf.Droid
 {

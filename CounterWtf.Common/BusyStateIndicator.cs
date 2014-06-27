@@ -1,16 +1,11 @@
-using System;
+﻿using System;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace CounterWtf.Droid
+namespace CounterWtf.Common
 {
-    /// <summary>
-    /// Busy progress handler for the WTF counter application.
-    /// </summary>
-    /// <remarks>Used in the progress bar to feedback application business to the user.</remarks>
-    [Obsolete]
-    public class WtfProgressHandler : DelegatingHandler
+    public class BusyStateIndicator : DelegatingHandler
     {
         int _busyCount;
 
@@ -38,6 +33,5 @@ namespace CounterWtf.Droid
         }
 
         #endregion
-
     }
 }

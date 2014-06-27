@@ -1,7 +1,7 @@
 using System;
 using Android.App;
 using Android.Runtime;
-using CounterWtf.PCL;
+using CounterWtf.Common;
 using TinyIoC;
 
 namespace CounterWtf.Droid
