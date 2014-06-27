@@ -6,7 +6,7 @@ namespace CounterWtf.Common
     internal static class MobileClientFactory
     {
         private const string ApplicationUrl = @"https://counterwtf.azure-mobile.net/";
-        private const string ApplicationKey = @"ddjldEDUWmSdHnMurGuEbAOJDtCEOA59";
+        private const string ApplicationKey = @"jKjjaLOmwSlCiVcMnAAJuSSOJcXTmJ95";
 
         public static MobileServiceClient GetClient(HttpMessageHandler handler)
         {

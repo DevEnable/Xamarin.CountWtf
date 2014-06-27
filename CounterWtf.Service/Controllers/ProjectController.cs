@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Controllers;
@@ -26,7 +27,15 @@ namespace CounterWtf.Service.Controllers
         // GET tables/Project
         public IQueryable<Project> GetAllProjects()
         {
-            return Query();
+            try
+            {
+                return Query();
+            }
+            catch (Exception ex)
+            {
+                Services.Log.Error(ex);
+                throw;
+            }
         }
 
         // GET tables/Project/48D68C86-6EA6-4C25-AA33-223FC9A27959
@@ -44,9 +53,18 @@ namespace CounterWtf.Service.Controllers
         // POST tables/Project/48D68C86-6EA6-4C25-AA33-223FC9A27959
         public async Task<IHttpActionResult> PostProject(Project item)
         {
-            item.CreatedBy = ((ServiceUser)User).Id;
-            Project current = await InsertAsync(item);
-            return CreatedAtRoute("Tables", new { id = current.Id }, current);
+            try
+            {
+                item.CreatedBy = ((ServiceUser)User).Id;
+                Project current = await InsertAsync(item);
+                return CreatedAtRoute("Tables", new { id = current.Id }, current);
+            }
+            catch (Exception ex)
+            {
+                this.Services.Log.Error(ex);
+                throw;
+            }
+            
         }
 
         // DELETE tables/Project/48D68C86-6EA6-4C25-AA33-223FC9A27959

@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using Android.App;
+using Android.Content;
 using Android.Views;
 using Android.Widget;
 using CounterWtf.Common;
@@ -11,6 +13,7 @@ namespace CounterWtf.Droid
     /// </summary>
     public class ProjectListAdapter : BaseAdapter<ProjectSummary>
     {
+        private readonly Activity _activity;
         private readonly List<ProjectSummary> _projects = new List<ProjectSummary>();
         
         /// <summary>
@@ -22,6 +25,15 @@ namespace CounterWtf.Droid
             {
                 return _projects.Count;
             }
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ProjectListAdapter"/> class.
+        /// </summary>
+        /// <param name="activity">The activity that this adapter is used in.</param>
+        public ProjectListAdapter(Activity activity)
+        {
+            _activity = activity;
         }
 
         /// <summary>
@@ -38,18 +50,6 @@ namespace CounterWtf.Droid
         }
 
         /// <summary>
-        /// Gets the view for a specific project.
-        /// </summary>
-        /// <param name="position">Index of the project in the list.</param>
-        /// <param name="convertView">The existing view for the row to convert.</param>
-        /// <param name="parent">The parent that the row belongs to</param>
-        /// <returns>The view to render to the user.</returns>
-        public override View GetView(int position, View convertView, ViewGroup parent)
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
         /// Gets the unique ID of the item.
         /// </summary>
         /// <param name="position">The position of the item in the list.</param>
@@ -57,6 +57,21 @@ namespace CounterWtf.Droid
         public override long GetItemId(int position)
         {
             return position;
+        }
+
+        public override View GetView(int position, View convertView, ViewGroup parent)
+        {
+            View view = convertView; // re-use an existing view, if one is available
+            
+            if (view == null)
+            { // otherwise create a new one
+                view = _activity.LayoutInflater.Inflate(Android.Resource.Layout.SimpleListItem1, null);
+            }
+
+            ProjectSummary summary = _projects[position];
+
+            view.FindViewById<TextView>(Android.Resource.Id.Text1).Text = String.Format("{0} - {1} wtfs!", summary.Name, summary.WtfCount);
+            return view;
         }
 
         /// <summary>

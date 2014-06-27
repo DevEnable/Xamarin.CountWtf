@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Web.Http;
+using AutoMapper;
 using CounterWtf.Service.DataObjects;
 using CounterWtf.Service.Models;
 using Microsoft.WindowsAzure.Mobile.Service;
@@ -21,6 +22,12 @@ namespace CounterWtf.Service
             // line. Comment it out again when you deploy your service for production use.
             // config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always;
             
+            Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<Project, ProjectSummary>();
+                cfg.CreateMap<ProjectSummary, Project>();
+            });
+
             Database.SetInitializer(new CounterWtfInitializer());
         }
     }

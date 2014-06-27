@@ -12,6 +12,6 @@ namespace CounterWtf.Common
         public string CreatedBy { get; set; }
 
         [JsonProperty("created")]
-        public DateTime Created { get; set; }
+        public DateTime? CreatedAt { get; set; }
     }
 }

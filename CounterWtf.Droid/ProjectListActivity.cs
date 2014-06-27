@@ -36,7 +36,7 @@ namespace CounterWtf.Droid
             _newProject = FindViewById<EditText>(Resource.Id.textNewProject);
 
             // Create an adapter and bind it
-            _adapter = new ProjectListAdapter();
+            _adapter = new ProjectListAdapter(this);
             ListView list = FindViewById<ListView>(Resource.Id.listViewProjects);
             list.Adapter = _adapter;
 

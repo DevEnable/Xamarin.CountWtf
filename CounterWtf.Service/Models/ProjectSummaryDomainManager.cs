@@ -20,8 +20,38 @@ namespace CounterWtf.Service.Models
         {
         }
 
+        public override IQueryable<ProjectSummary> Query()
+        {
+            Services.Log.Info("Calling Query override.");
+
+            // Incredibly lazy and inefficent, but I don't want to play with mapping projections.
+            // e.g. http://lostechies.com/jimmybogard/2011/02/09/autoprojecting-linq-queries/
+            var query = (from p in this.Context.Set<Project>()
+                         let wtfs = p.Wtfs.Count()
+                         select new
+                         {
+                             Project = p,
+                             WtfCount = wtfs
+                         }
+                );
+
+            List<ProjectSummary> summaries = new List<ProjectSummary>();
+
+            foreach (var p in query)
+            {
+                ProjectSummary summary = new ProjectSummary();
+                Mapper.Map(p.Project, summary);
+                summary.WtfCount = p.WtfCount;
+                summaries.Add(summary);
+            }
+
+            return summaries.AsQueryable();
+        }
+
         public override SingleResult<ProjectSummary> Lookup(string id)
         {
+            throw new NotSupportedException();
+            /*
             var query = (from p in this.Context.Set<Project>()
                 where p.Id == id
                 let wtfs = p.Wtfs.Count()
@@ -33,6 +63,7 @@ namespace CounterWtf.Service.Models
                 );
 
             var result = query.FirstOrDefault();
+            Services.Log.Info("Called Lookup");
             List<ProjectSummary> response = new List<ProjectSummary>();
 
             if (result != null)
@@ -43,7 +74,7 @@ namespace CounterWtf.Service.Models
                 response.Add(summary);
             }
 
-            return SingleResult.Create(response.AsQueryable());
+            return SingleResult.Create(response.AsQueryable());*/
         }
 
         public override Task<ProjectSummary> UpdateAsync(string id, Delta<ProjectSummary> patch)
