@@ -7,6 +7,7 @@ using Android.Widget;
 using CounterWtf.Common;
 using Java.Interop;
 using Microsoft.WindowsAzure.MobileServices;
+using Newtonsoft.Json.Linq;
 using TinyIoC;
 
 namespace CounterWtf.Droid
@@ -49,6 +50,9 @@ namespace CounterWtf.Droid
 
             if (_user != null)
             {
+                TextView loggedInState = FindViewById<TextView>(Resource.Id.loggedInState);
+                // We do not get the display name.  Azure Mobile Services can get this name for us, but that is out of scope for this demo.
+                loggedInState.Text = String.Concat(this.Resources.GetString(Resource.String.logged_in_as), _user.UserId);
                 await RefreshProjects();    
             }
         }
@@ -88,6 +92,8 @@ namespace CounterWtf.Droid
                 Name= _newProject.Text,
             };
 
+            MobileServiceInvalidOperationException opException = null;
+
             try
             {
                 // Insert the new project
@@ -95,12 +101,28 @@ namespace CounterWtf.Droid
                 // Lazy
                 await RefreshProjects();
             }
+            catch (MobileServiceInvalidOperationException ex)
+            {
+                // Validation exceptions will be trapped here.
+                // Need to assign it a variable outside of the try/catch scope as you cannot await in here.
+                opException = ex;
+            }
             catch (Exception e)
             {
                 CreateAndShowDialog(e, "Error");
+                return;
             }
 
-            _newProject.Text = "";
+            if (opException != null)
+            {
+                string json = await opException.Response.Content.ReadAsStringAsync();
+                var content = JObject.Parse(json);
+                CreateAndShowDialog((string)content["message"], "Validation Error");
+            }
+            else
+            {
+                _newProject.Text = "";    
+            }
         }
 
         // Called when the refresh menu opion is selected
@@ -140,7 +162,6 @@ namespace CounterWtf.Droid
             try
             {
                 MobileServiceUser user = await _client.Authenticate(this);
-                CreateAndShowDialog(string.Format("You are now logged in - {0}", user.UserId), "Logged in!");
                 return user;
             }
             catch (Exception ex)

@@ -66,11 +66,11 @@ namespace CounterWtf.Droid
 			// aapt resource value: 0x7f070004
 			public const int buttonAddToDo = 2131165188;
 			
-			// aapt resource value: 0x7f070008
-			public const int checkToDoItem = 2131165192;
+			// aapt resource value: 0x7f070009
+			public const int checkToDoItem = 2131165193;
 			
-			// aapt resource value: 0x7f070007
-			public const int listViewProjects = 2131165191;
+			// aapt resource value: 0x7f070008
+			public const int listViewProjects = 2131165192;
 			
 			// aapt resource value: 0x7f070005
 			public const int listViewToDo = 2131165189;
@@ -78,11 +78,14 @@ namespace CounterWtf.Droid
 			// aapt resource value: 0x7f070002
 			public const int loadingProgressBar = 2131165186;
 			
-			// aapt resource value: 0x7f070009
-			public const int menu_refresh = 2131165193;
-			
 			// aapt resource value: 0x7f070006
-			public const int textNewProject = 2131165190;
+			public const int loggedInState = 2131165190;
+			
+			// aapt resource value: 0x7f07000a
+			public const int menu_refresh = 2131165194;
+			
+			// aapt resource value: 0x7f070007
+			public const int textNewProject = 2131165191;
 			
 			// aapt resource value: 0x7f070003
 			public const int textNewToDo = 2131165187;
@@ -150,14 +153,20 @@ namespace CounterWtf.Droid
 			// aapt resource value: 0x7f040000
 			public const int app_name = 2130968576;
 			
+			// aapt resource value: 0x7f040007
+			public const int checkbox_text = 2130968583;
+			
 			// aapt resource value: 0x7f040005
-			public const int checkbox_text = 2130968581;
+			public const int logged_in_as = 2130968581;
 			
 			// aapt resource value: 0x7f040004
 			public const int menu_refresh = 2130968580;
 			
+			// aapt resource value: 0x7f040006
+			public const int mobile_services = 2130968582;
+			
 			// aapt resource value: 0x7f040003
-			public const int mobile_services = 2130968579;
+			public const int not_logged_in = 2130968579;
 			
 			static String()
 			{

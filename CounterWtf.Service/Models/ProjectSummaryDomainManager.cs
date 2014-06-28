@@ -51,30 +51,6 @@ namespace CounterWtf.Service.Models
         public override SingleResult<ProjectSummary> Lookup(string id)
         {
             throw new NotSupportedException();
-            /*
-            var query = (from p in this.Context.Set<Project>()
-                where p.Id == id
-                let wtfs = p.Wtfs.Count()
-                select new
-                    {
-                        Project = p,
-                        WtfCount = wtfs
-                    }
-                );
-
-            var result = query.FirstOrDefault();
-            Services.Log.Info("Called Lookup");
-            List<ProjectSummary> response = new List<ProjectSummary>();
-
-            if (result != null)
-            {
-                ProjectSummary summary = Mapper.Map<ProjectSummary>(result.Project);
-                summary.WtfCount = result.WtfCount;
-
-                response.Add(summary);
-            }
-
-            return SingleResult.Create(response.AsQueryable());*/
         }
 
         public override Task<ProjectSummary> UpdateAsync(string id, Delta<ProjectSummary> patch)

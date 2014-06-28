@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
@@ -51,12 +53,20 @@ namespace CounterWtf.Service.Controllers
         }
 
         // POST tables/Project/48D68C86-6EA6-4C25-AA33-223FC9A27959
-        public async Task<IHttpActionResult> PostProject(Project item)
+        public async Task<IHttpActionResult> PostProject(Project project)
         {
+            List<string> validationErrors = GetValidationErrors(project);
+
+            if (validationErrors.Any())
+            {
+                // In a real code you should format the list.
+                return BadRequest(validationErrors.First());
+            }
+
             try
             {
-                item.CreatedBy = ((ServiceUser)User).Id;
-                Project current = await InsertAsync(item);
+                project.CreatedBy = ((ServiceUser)User).Id;
+                Project current = await InsertAsync(project);
                 return CreatedAtRoute("Tables", new { id = current.Id }, current);
             }
             catch (Exception ex)
@@ -71,6 +81,23 @@ namespace CounterWtf.Service.Controllers
         public Task DeleteProject(string id)
         {
             return DeleteAsync(id);
+        }
+
+        private List<string> GetValidationErrors(Project project)
+        {
+            List<string> errors = new List<string>();
+
+            if (String.IsNullOrWhiteSpace(project.Name))
+            {
+                errors.Add("A project name is required.");
+            }
+
+            if (this.Query().Any(p => p.Name.ToLower() == project.Name.ToLower()))
+            {
+                errors.Add("A project with this name already exists.");
+            }
+
+            return errors;
         }
     }
 }

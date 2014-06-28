@@ -10,12 +10,12 @@
         android:background="#71BCFA"
         android:padding="6dip">
         <TextView
-            android:id="@+id/textViewTitle"
+            android:id="@+id/loggedInState"
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_marginLeft="2dp"
             android:layout_weight="0.12"
-            android:text="@string/mobile_services"
+            android:text="@string/not_logged_in"
             android:textAppearance="?android:attr/textAppearanceLarge" />
         <ProgressBar
             android:id="@+id/loadingProgressBar"
