@@ -66,6 +66,7 @@ namespace CounterWtf.Service.Controllers
             try
             {
                 project.CreatedBy = ((ServiceUser)User).Id;
+                project.CreatedAt = DateTime.UtcNow;
                 Project current = await InsertAsync(project);
                 return CreatedAtRoute("Tables", new { id = current.Id }, current);
             }

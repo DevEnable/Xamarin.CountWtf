@@ -96,13 +96,11 @@ namespace CounterWtf.Droid
         /// <summary>
         /// Removes a project from the list to be displayed.
         /// </summary>
-        /// <param name="project"></param>
+        /// <param name="project">Project to remove</param>
         public void Remove(ProjectSummary project)
         {
             _projects.Remove(project);
             NotifyDataSetChanged();
         }
-
-
     }
 }

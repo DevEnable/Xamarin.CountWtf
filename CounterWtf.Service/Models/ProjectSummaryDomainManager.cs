@@ -22,12 +22,11 @@ namespace CounterWtf.Service.Models
 
         public override IQueryable<ProjectSummary> Query()
         {
-            Services.Log.Info("Calling Query override.");
-
             // Incredibly lazy and inefficent, but I don't want to play with mapping projections.
             // e.g. http://lostechies.com/jimmybogard/2011/02/09/autoprojecting-linq-queries/
             var query = (from p in this.Context.Set<Project>()
                          let wtfs = p.Wtfs.Count()
+                         orderby p.Name
                          select new
                          {
                              Project = p,

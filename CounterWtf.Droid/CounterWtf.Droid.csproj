@@ -72,12 +72,15 @@
     <Compile Include="DroidClient.cs" />
     <Compile Include="ProjectListActivity.cs" />
     <Compile Include="ProjectListAdapter.cs" />
+    <Compile Include="ProjectWtfListAdapter.cs" />
+    <Compile Include="ProjectWtfsActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TinyIoC.cs" />
     <Compile Include="ToDoActivity.cs" />
     <Compile Include="ToDoItem.cs" />
     <Compile Include="ToDoItemAdapter.cs" />
+    <Compile Include="WtfActivity.cs" />
     <Compile Include="WtfApplication.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -88,9 +91,17 @@
     <AndroidResource Include="Resources\layout\Projects.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\ProjectWtfs.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\Row_List_Wtf.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\values\Strings.xml" />
+    <AndroidResource Include="Resources\values\Strings.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
     <AndroidResource Include="Resources\layout\Activity_To_Do.axml" />
     <AndroidResource Include="Resources\layout\Row_List_To_Do.axml" />
     <AndroidResource Include="Resources\values\styles.xml" />

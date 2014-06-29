@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <RelativeLayout
+        android:id="@+id/titleLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="6dip"
+        android:minWidth="25px"
+        android:minHeight="25px">
+        <LinearLayout
+            android:id="@+id/projectLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#71BCFA"
+            android:padding="6dip">
+            <TextView
+                android:id="@+id/projectName"
+                android:text="Project Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2" />
+            <ProgressBar
+                android:id="@+id/loadingProgressBar"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:gravity="right" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/wtfCountLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/projectLayout"
+            android:layout_alignParentRight="true">
+            <TextView
+                android:text="@string/total_wtfs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/totalWtfs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:minWidth="20dip"
+                android:layout_marginLeft="4.7dp" />
+        </LinearLayout>
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/buttonLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_below="@id/titleLayout">
+        <Button
+            android:id="@+id/wtfButton"
+            android:text="WTF!"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="40dp"
+            android:layout_alignParentBottom="true" />
+        <ListView
+            android:id="@+id/listViewProjects"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/row_list_wtf"
+            android:gravity="fill"
+            android:padding="6dip"
+            android:layout_above="@id/wtfButton"
+            android:layout_alignParentTop="true" />
+    </RelativeLayout>
+</RelativeLayout>

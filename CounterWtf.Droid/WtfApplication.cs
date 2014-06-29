@@ -27,7 +27,7 @@ namespace CounterWtf.Droid
             base.OnCreate();
 
             // Register IoC dependencies.
-            TinyIoCContainer.Current.Register<IWtfClient, DroidClient>();
+            TinyIoCContainer.Current.Register<IWtfClient, DroidClient>(); // Singleton
         }
     }
 }

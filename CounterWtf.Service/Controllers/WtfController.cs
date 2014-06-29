@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Controllers;
@@ -16,11 +17,13 @@ namespace CounterWtf.Service.Controllers
     [AuthorizeLevel(AuthorizationLevel.User)] 
     public class WtfController : TableController<Wtf>
     {
+        private CounterWtfContext _context;
+
         protected override void Initialize(HttpControllerContext controllerContext)
         {
             base.Initialize(controllerContext);
-            CounterWtfContext context = new CounterWtfContext();
-            DomainManager = new EntityDomainManager<Wtf>(context, Request, Services);
+            _context = new CounterWtfContext();
+            DomainManager = new EntityDomainManager<Wtf>(_context, Request, Services);
         }
 
         // GET tables/Wtf
@@ -42,10 +45,21 @@ namespace CounterWtf.Service.Controllers
         }
 
         // POST tables/Wtf/48D68C86-6EA6-4C25-AA33-223FC9A27959
-        public async Task<IHttpActionResult> PostWtf(Wtf item)
+        public async Task<IHttpActionResult> PostWtf(Wtf wtf)
         {
-            item.CreatedBy = ((ServiceUser) User).Id;
-            Wtf current = await InsertAsync(item);
+            if (String.IsNullOrWhiteSpace(wtf.ProjectId))
+            {
+                return BadRequest("An identify project ID needs to be supplied.");
+            }
+
+            if (!_context.Projects.Any(p => p.Id == wtf.ProjectId))
+            {
+                return BadRequest("Unable to find the project to associated with the WTF");
+            }
+            
+            wtf.CreatedBy = ((ServiceUser) User).Id;
+            wtf.CreatedAt = DateTime.UtcNow;
+            Wtf current = await InsertAsync(wtf);
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 

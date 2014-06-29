@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using Android.App;
+using Android.Content;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
@@ -16,34 +17,31 @@ namespace CounterWtf.Droid
     /// Lists out the projects that have projects associated with them.
     /// </summary>
     [Activity(MainLauncher = true, Label = "@string/app_name", Theme = "@style/AppTheme")]
-    public class ProjectListActivity : Activity
+    public class ProjectListActivity : WtfActivity
     {
-        private IWtfClient _client;
         private MobileServiceUser _user;
         private ProjectListAdapter _adapter;
  
         // Control references
-        private ProgressBar _progressBar;
         private EditText _newProject;
-
 
         protected async override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.Projects);
 
-            _progressBar = FindViewById<ProgressBar>(Resource.Id.loadingProgressBar);
-            _progressBar.Visibility = ViewStates.Gone;
+            ProgressBar = FindViewById<ProgressBar>(Resource.Id.loadingProgressBar);
+            ProgressBar.Visibility = ViewStates.Gone;
             _newProject = FindViewById<EditText>(Resource.Id.textNewProject);
 
             // Create an adapter and bind it
             _adapter = new ProjectListAdapter(this);
             ListView list = FindViewById<ListView>(Resource.Id.listViewProjects);
             list.Adapter = _adapter;
-
+            list.ItemClick += ProjectTouched;
             // Service locator pattern
-            _client = TinyIoCContainer.Current.Resolve<IWtfClient>();
-            _client.BusyIndicator.BusyStateChange += HandleBusyStateChange;
+            Client = TinyIoCContainer.Current.Resolve<IWtfClient>();
+            Client.BusyIndicator.BusyStateChange += HandleBusyStateChange;
             
             // Authenticate the user as all of the Api controllers require a validated user.
             _user = await Authenticate();
@@ -55,6 +53,15 @@ namespace CounterWtf.Droid
                 loggedInState.Text = String.Concat(this.Resources.GetString(Resource.String.logged_in_as), _user.UserId);
                 await RefreshProjects();    
             }
+        }
+
+        private void ProjectTouched(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            Intent intent = new Intent(this, typeof(ProjectWtfsActivity));
+            ProjectSummary project = _adapter[e.Position];
+            intent.PutExtra("projectId", project.Id);
+            intent.PutExtra("projectName", project.Name);
+            StartActivity(intent);
         }
 
         /// <summary>
@@ -73,7 +80,7 @@ namespace CounterWtf.Droid
         {
             if (item.ItemId == Resource.Id.menu_refresh)
             {
-                OnProjectItemSelected();
+                OnProjectRefreshRequested();
             }
             return true;
         }
@@ -97,7 +104,7 @@ namespace CounterWtf.Droid
             try
             {
                 // Insert the new project
-                await _client.AddProject(project);
+                await Client.AddProject(project);
                 // Lazy
                 await RefreshProjects();
             }
@@ -115,9 +122,7 @@ namespace CounterWtf.Droid
 
             if (opException != null)
             {
-                string json = await opException.Response.Content.ReadAsStringAsync();
-                var content = JObject.Parse(json);
-                CreateAndShowDialog((string)content["message"], "Validation Error");
+                await ProcessOperationException(opException);
             }
             else
             {
@@ -126,7 +131,7 @@ namespace CounterWtf.Droid
         }
 
         // Called when the refresh menu opion is selected
-        private async void OnProjectItemSelected()
+        private async void OnProjectRefreshRequested()
         {
             await RefreshProjects();
         }
@@ -136,7 +141,7 @@ namespace CounterWtf.Droid
         {
             try
             {
-                var projects = await _client.GetProjectSummaries();
+                var projects = await Client.GetProjectSummaries();
                 _adapter.Clear();
                 foreach (ProjectSummary project in projects)
                 {
@@ -149,19 +154,11 @@ namespace CounterWtf.Droid
             }
         }
 
-        private void HandleBusyStateChange(bool busy)
-        {
-            if (_progressBar != null)
-            {
-                _progressBar.Visibility = busy ? ViewStates.Visible : ViewStates.Gone;
-            }
-        }
-
         private async Task<MobileServiceUser> Authenticate()
         {
             try
             {
-                MobileServiceUser user = await _client.Authenticate(this);
+                MobileServiceUser user = await Client.Authenticate(this);
                 return user;
             }
             catch (Exception ex)
@@ -171,18 +168,5 @@ namespace CounterWtf.Droid
             }
         }
 
-        private void CreateAndShowDialog(Exception exception, String title)
-        {
-            CreateAndShowDialog(exception.Message, title);
-        }
-
-        private void CreateAndShowDialog(string message, string title)
-        {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
-            builder.SetMessage(message);
-            builder.SetTitle(title);
-            builder.Create().Show();
-        }
     }
 }
