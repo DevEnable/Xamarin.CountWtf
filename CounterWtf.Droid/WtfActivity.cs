@@ -23,7 +23,7 @@ namespace CounterWtf.Droid
         protected IWtfClient Client;
         protected ProgressBar ProgressBar;
 
-        protected void HandleBusyStateChange(bool busy)
+        protected virtual void HandleBusyStateChange(bool busy)
         {
             if (ProgressBar != null)
             {

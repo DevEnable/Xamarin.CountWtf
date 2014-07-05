@@ -15,6 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{0C64A0
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CounterWtf.Common", "CounterWtf.Common\CounterWtf.Common.csproj", "{FD8A0330-A75C-44BC-9294-939E1F21DB8D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CounterWtf.WP", "CounterWtf.WP\CounterWtf.WP.csproj", "{FB5B3030-F22A-43EE-B1EE-586EDB101849}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,24 @@ Global
 		{FD8A0330-A75C-44BC-9294-939E1F21DB8D}.Release|ARM.Build.0 = Release|Any CPU
 		{FD8A0330-A75C-44BC-9294-939E1F21DB8D}.Release|x86.ActiveCfg = Release|Any CPU
 		{FD8A0330-A75C-44BC-9294-939E1F21DB8D}.Release|x86.Build.0 = Release|Any CPU
+		{FB5B3030-F22A-43EE-B1EE-586EDB101849}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB5B3030-F22A-43EE-B1EE-586EDB101849}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB5B3030-F22A-43EE-B1EE-586EDB101849}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{FB5B3030-F22A-43EE-B1EE-586EDB101849}.Debug|ARM.ActiveCfg = Debug|ARM
+		{FB5B3030-F22A-43EE-B1EE-586EDB101849}.Debug|ARM.Build.0 = Debug|ARM
+		{FB5B3030-F22A-43EE-B1EE-586EDB101849}.Debug|ARM.Deploy.0 = Debug|ARM
+		{FB5B3030-F22A-43EE-B1EE-586EDB101849}.Debug|x86.ActiveCfg = Debug|x86
+		{FB5B3030-F22A-43EE-B1EE-586EDB101849}.Debug|x86.Build.0 = Debug|x86
+		{FB5B3030-F22A-43EE-B1EE-586EDB101849}.Debug|x86.Deploy.0 = Debug|x86
+		{FB5B3030-F22A-43EE-B1EE-586EDB101849}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB5B3030-F22A-43EE-B1EE-586EDB101849}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB5B3030-F22A-43EE-B1EE-586EDB101849}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{FB5B3030-F22A-43EE-B1EE-586EDB101849}.Release|ARM.ActiveCfg = Release|ARM
+		{FB5B3030-F22A-43EE-B1EE-586EDB101849}.Release|ARM.Build.0 = Release|ARM
+		{FB5B3030-F22A-43EE-B1EE-586EDB101849}.Release|ARM.Deploy.0 = Release|ARM
+		{FB5B3030-F22A-43EE-B1EE-586EDB101849}.Release|x86.ActiveCfg = Release|x86
+		{FB5B3030-F22A-43EE-B1EE-586EDB101849}.Release|x86.Build.0 = Release|x86
+		{FB5B3030-F22A-43EE-B1EE-586EDB101849}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

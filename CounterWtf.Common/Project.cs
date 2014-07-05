@@ -2,16 +2,38 @@
 
 namespace CounterWtf.Common
 {
-	public class Project
+	public class Project : ModelBase
 	{
-		[JsonProperty("id")]
-		public string Id { get; set; }
+	    private string _name;
+	    private string _createdBy;
+	    
+	    [JsonProperty("name")]
+	    public string Name
+	    {
+	        get
+	        {
+	            return _name;
+	        }
+	        set
+	        {
+	            _name = value;
+                OnPropertyChanged();
+	        }
+	    }
 
-		[JsonProperty("name")]
-		public string Name { get; set; }
-
-		[JsonProperty("createdBy")]
-		public string CreatedBy { get; set; }
+	    [JsonProperty("createdBy")]
+	    public string CreatedBy
+	    {
+	        get
+	        {
+	            return _createdBy;
+	        }
+	        set
+	        {
+	            _createdBy = value;
+                OnPropertyChanged();
+	        }
+	    }
 
 	}
 }

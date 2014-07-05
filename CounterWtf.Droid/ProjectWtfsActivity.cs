@@ -22,7 +22,7 @@ namespace CounterWtf.Droid
         // Control references
         private TextView _projectName;
         private TextView _wtfCount;
-        private Button _addWtfButton;
+        private ImageButton _addWtfButton;
 
         protected async override void OnCreate(Bundle bundle)
         {
@@ -33,7 +33,7 @@ namespace CounterWtf.Droid
             ProgressBar.Visibility = ViewStates.Gone;
             
             _projectName = FindViewById<TextView>(Resource.Id.projectName);
-            _addWtfButton = FindViewById<Button>(Resource.Id.wtfButton);
+            _addWtfButton = FindViewById<ImageButton>(Resource.Id.wtfButton);
             _wtfCount = FindViewById<TextView>(Resource.Id.totalWtfs);
 
             _projectId = Intent.GetStringExtra("projectId");
@@ -72,6 +72,13 @@ namespace CounterWtf.Droid
             }
 
             return true;
+        }
+
+        protected override void HandleBusyStateChange(bool busy)
+        {
+            base.HandleBusyStateChange(busy);
+
+            _addWtfButton.Enabled = !busy;
         }
 
         // Called when the refresh menu opion is selected

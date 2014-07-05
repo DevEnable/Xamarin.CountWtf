@@ -53,13 +53,17 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_below="@id/titleLayout">
-        <Button
+        <ImageButton
             android:id="@+id/wtfButton"
-            android:text="WTF!"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minHeight="40dp"
-            android:layout_alignParentBottom="true" />
+            android:maxHeight="40dp"
+            android:maxWidth="284px"
+            android:src="@drawable/WtfButton"
+            android:layout_alignParentBottom="true"
+            android:background="@null"
+            android:padding="12dp"
+            android:layout_centerHorizontal="true" />
         <ListView
             android:id="@+id/listViewProjects"
             android:layout_width="match_parent"
