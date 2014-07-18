@@ -63,65 +63,50 @@ namespace CounterWtf.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f070000
-			public const int LinearLayout1 = 2131165184;
-			
-			// aapt resource value: 0x7f070011
-			public const int addedBy = 2131165201;
-			
-			// aapt resource value: 0x7f070012
-			public const int addedDate = 2131165202;
-			
-			// aapt resource value: 0x7f070004
-			public const int buttonAddToDo = 2131165188;
-			
-			// aapt resource value: 0x7f07000e
-			public const int buttonLayout = 2131165198;
-			
-			// aapt resource value: 0x7f070010
-			public const int checkToDoItem = 2131165200;
-			
-			// aapt resource value: 0x7f070008
-			public const int listViewProjects = 2131165192;
-			
-			// aapt resource value: 0x7f070005
-			public const int listViewToDo = 2131165189;
-			
-			// aapt resource value: 0x7f070002
-			public const int loadingProgressBar = 2131165186;
-			
-			// aapt resource value: 0x7f070006
-			public const int loggedInState = 2131165190;
-			
-			// aapt resource value: 0x7f070013
-			public const int menu_refresh = 2131165203;
-			
-			// aapt resource value: 0x7f07000a
-			public const int projectLayout = 2131165194;
-			
-			// aapt resource value: 0x7f07000b
-			public const int projectName = 2131165195;
-			
-			// aapt resource value: 0x7f070007
-			public const int textNewProject = 2131165191;
-			
-			// aapt resource value: 0x7f070003
-			public const int textNewToDo = 2131165187;
-			
-			// aapt resource value: 0x7f070001
-			public const int textViewTitle = 2131165185;
-			
-			// aapt resource value: 0x7f070009
-			public const int titleLayout = 2131165193;
+			// aapt resource value: 0x7f07000c
+			public const int addedBy = 2131165196;
 			
 			// aapt resource value: 0x7f07000d
-			public const int totalWtfs = 2131165197;
+			public const int addedDate = 2131165197;
 			
-			// aapt resource value: 0x7f07000f
-			public const int wtfButton = 2131165199;
+			// aapt resource value: 0x7f070003
+			public const int buttonAddToDo = 2131165187;
 			
-			// aapt resource value: 0x7f07000c
-			public const int wtfCountLayout = 2131165196;
+			// aapt resource value: 0x7f07000a
+			public const int buttonLayout = 2131165194;
+			
+			// aapt resource value: 0x7f070004
+			public const int listViewProjects = 2131165188;
+			
+			// aapt resource value: 0x7f070001
+			public const int loadingProgressBar = 2131165185;
+			
+			// aapt resource value: 0x7f070000
+			public const int loggedInState = 2131165184;
+			
+			// aapt resource value: 0x7f07000e
+			public const int menu_refresh = 2131165198;
+			
+			// aapt resource value: 0x7f070006
+			public const int projectLayout = 2131165190;
+			
+			// aapt resource value: 0x7f070007
+			public const int projectName = 2131165191;
+			
+			// aapt resource value: 0x7f070002
+			public const int textNewProject = 2131165186;
+			
+			// aapt resource value: 0x7f070005
+			public const int titleLayout = 2131165189;
+			
+			// aapt resource value: 0x7f070009
+			public const int totalWtfs = 2131165193;
+			
+			// aapt resource value: 0x7f07000b
+			public const int wtfButton = 2131165195;
+			
+			// aapt resource value: 0x7f070008
+			public const int wtfCountLayout = 2131165192;
 			
 			static Id()
 			{
@@ -137,19 +122,13 @@ namespace CounterWtf.Droid
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int Activity_To_Do = 2130903040;
+			public const int Projects = 2130903040;
 			
 			// aapt resource value: 0x7f030001
-			public const int Projects = 2130903041;
+			public const int ProjectWtfs = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int ProjectWtfs = 2130903042;
-			
-			// aapt resource value: 0x7f030003
-			public const int Row_List_To_Do = 2130903043;
-			
-			// aapt resource value: 0x7f030004
-			public const int Row_List_Wtf = 2130903044;
+			public const int Row_List_Wtf = 2130903042;
 			
 			static Layout()
 			{
@@ -189,17 +168,11 @@ namespace CounterWtf.Droid
 			// aapt resource value: 0x7f040000
 			public const int app_name = 2130968576;
 			
-			// aapt resource value: 0x7f040009
-			public const int checkbox_text = 2130968585;
-			
 			// aapt resource value: 0x7f040006
 			public const int logged_in_as = 2130968582;
 			
 			// aapt resource value: 0x7f040005
 			public const int menu_refresh = 2130968581;
-			
-			// aapt resource value: 0x7f040008
-			public const int mobile_services = 2130968584;
 			
 			// aapt resource value: 0x7f040004
 			public const int not_logged_in = 2130968580;

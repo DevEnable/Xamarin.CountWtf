@@ -62,7 +62,6 @@ namespace CounterWtf.Common
         {
             return this.Client.GetTable<Wtf>()
                               .Where(wtf => wtf.ProjectId == projectId)
-                              //.OrderByDescending(wtf => wtf.CreatedAt)
                               .ToEnumerableAsync();
         }
     }

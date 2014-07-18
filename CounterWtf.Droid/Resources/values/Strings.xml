@@ -8,7 +8,5 @@
   <string name="menu_refresh">Refresh</string>
   <string name="logged_in_as">Logged in ID: </string>
   <string name="total_wtfs">Total WTF Count:</string>
-  <!-- ToDo -->
-  <string name="mobile_services">Mobile Services </string>
-  <string name="checkbox_text">Item Name</string>
+ 
 </resources>
